@@ -4,7 +4,9 @@ using namespace std;
 
 string user[100000][7]={{}};
 string item[100000][6]={{}};
+
 int current_id,last_id = 0;
+
 int current_item_id,last_item_id = 0;
 #include "function.h"
 
@@ -22,10 +24,12 @@ int current_item_id,last_item_id = 0;
 // For item[x][6] = "id","Name","Description","Location","Date/Time of loss","Contact Information"
 // current_item_id is used to access the item
 // last_item_id is used to log lost item
+
 int main()
 {
     char choice;
-    if(user[0][0] ==""){
+
+    if(user[0][1] ==""){
             main_menu:
             cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER \n\n\n" << endl;
             cout << "1. Create Account \n" << endl;
@@ -40,7 +44,7 @@ int main()
                     break;
 
                 case '2':
-                    if(user[0][1]==""){
+                    if(user[0][0]==""){
                             system("CLS");
                             cout << "There are no Accounts \n\n\n";
                             main();
@@ -52,7 +56,6 @@ int main()
                     break;
 
                 case '3':
-                    system("CLS");
                     return 0;
                     break;
                 default:
@@ -67,9 +70,10 @@ int main()
         cout << "\t\t Name: " << user[current_id][1]<<" "<<user[current_id][2]<<"\n\n\n" << endl;
         cout << "1. Find Lost Item \n" << endl;
         cout << "2. Register Found Items \n" << endl;
-        cout << "3. Search items \n" << endl;
-        cout << "4. Edit user contact information \n" << endl;
+        cout << "3. List Lost items \n" << endl;
+        cout << "4. Edit User contact information \n" << endl;
         cout << "5. Return to Main Menu \n" << endl;
+        cout << "6. Exit \n " << endl;
 
         cin >> choice;
         switch(choice){
@@ -83,7 +87,7 @@ int main()
                 break;
             case '3':
                 system("cls");
-                SearchItem();
+                ListItem();
                 break;
             case '4':
                 system("cls");
@@ -92,6 +96,9 @@ int main()
             case '5':
                 system("cls");
                 goto main_menu;
+                break;
+            case '6':
+                return 0;
                 break;
             default:
                 system("cls");

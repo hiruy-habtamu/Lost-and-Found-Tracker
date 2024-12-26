@@ -28,6 +28,7 @@ void CreateAccount(){
     cin >> user[last_id][6];
 
     current_id = last_id;
+
     last_id+=1;
 
     system("cls");
@@ -55,7 +56,7 @@ void SelectAccount(){
     cout <<"Please Enter the password\n";
     cin >> password;
 
-    if(password!=user[id][3]){
+    if(password!= user[id][3]){
         system("CLS");
         cout << "\t\t\t **Incorrect Password** \n";
         goto enter_id;
@@ -74,7 +75,7 @@ void RegisterFoundItem(){
 
 }
 
-void SearchItem(){
+void ListItem(){
 
 }
 
