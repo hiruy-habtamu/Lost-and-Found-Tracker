@@ -1,4 +1,5 @@
 int main();
+void ListItem();
 
 void CreateAccount(){
     cout << "\t\t\t\t\t\t CREATE ACCOUNT \n\n\n";
@@ -25,7 +26,7 @@ void CreateAccount(){
     getline(cin, user[last_id][5]);
 
     cout << "Please Enter Phone Number \n";
-    cout << "+251 ";
+    cout << "+251-";
     getline(cin, user[last_id][6]);
 
     current_id = last_id;
@@ -68,9 +69,57 @@ void SelectAccount(){
         main();
     }
 }
-void FindLostItem(){
+void FindLostItem() {
+    cout << "\t\t\t\t\t\t FIND LOST ITEM \n\n\n";
+
+    int id; // store the ID
+    int choice;
+
+    cout << "Enter ID of the item: ";
+    cin >> id;
+
+    if (id < 0 || id >= last_item_id || item[id][0] == "") {
+        cout << "\nInvalid ID - please enter a valid ID." << endl;
+//        system("CLS");
+//        ListItem();
+    }
+    else{
+    cout << "\n==============================================="  << endl;
+    cout << "               Found Item Details             "  << endl;
+    cout <<  "==============================================="  << endl;
+
+    cout << "\nName: " << item[id][1] << endl;
+    cout << "Description: " << item[id][2] << endl;
+    cout << "Place found: " << item[id][3] << endl;
+    cout << "Date found: " << item[id][4] << endl;
+    cout << "Email: " << item[id][5] << endl;
+    cout << "Phone Number: " << item[id][6] << endl;
+    }
 
 
+    cout << "\n\n0. Return to Main Menu" << endl;
+    cout << "1. Search again" << endl;
+    cout << "2. Exit Program" << endl;
+    cout << "choice: ";
+    cin >> choice;
+    system("CLS");
+    switch(choice){
+    case 0:
+        main();
+        break;
+    case 1:
+        FindLostItem();
+        break;
+    case 2:
+        cout << "Exiting program..." << endl;
+        exit(0);
+    default:
+        cout << "Invalid choice! Please enter a valid option." << endl;
+        FindLostItem();
+    }
+    if (choice == 0) {
+        main();
+    }
 }
 
 void RegisterFoundItem(){
@@ -92,7 +141,7 @@ void RegisterFoundItem(){
     getline(cin,item[last_item_id][4]);
 
     item[last_item_id][5] = user[current_id][5];
-    item[last_item_id][6] = "+251 " + user[current_id][6];
+    item[last_item_id][6] = "+251-" + user[current_id][6];
     current_item_id = last_item_id;
 
     last_item_id++;
