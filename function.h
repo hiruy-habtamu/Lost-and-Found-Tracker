@@ -48,7 +48,7 @@ void SelectAccount(){
     cout << "\n===============================================\n" << endl;
     cout << "                  LOG IN                     \n" << endl;
     cout << "===============================================\n\n" << endl;
-    cout <<"Please Enter account id \n";
+    cout <<"Please Enter account id: ";
     cin >> id;
 
     //check if id exists
@@ -59,7 +59,7 @@ void SelectAccount(){
     }
 
     cout <<"Welcome "<<user[id][1]<<"\n";
-    cout <<"Please Enter the password\n";
+    cout <<"Please Enter the password: ";
     cin >> password;
 
     if(password!= user[id][3]){
