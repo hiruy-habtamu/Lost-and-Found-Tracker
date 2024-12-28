@@ -5,7 +5,9 @@ using namespace std;
 string user[100000][7]={{}};
 string item[100000][6]={{}};
 
+
 int current_id,last_id = 0;
+
 
 int current_item_id,last_item_id = 0;
 #include "function.h"
@@ -32,8 +34,8 @@ int main()
     if(user[0][1] ==""){
             main_menu:
             cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER \n\n\n" << endl;
-            cout << "1. Create Account \n" << endl;
-            cout << "2. Select Account \n" <<endl;
+            cout << "1. Sign up \n" << endl;
+            cout << "2. Log in \n" <<endl;
             cout << "3. Exit \n" << endl;
 
             cin >> choice;
@@ -66,7 +68,7 @@ int main()
             }
     else{
         cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER \n\n\n" << endl;
-        cout << "\t\t Id: " << user[current_id][0] << endl;
+        cout << "\t\t Id: " << current_id <<endl;
         cout << "\t\t Name: " << user[current_id][1]<<" "<<user[current_id][2]<<"\n\n\n" << endl;
         cout << "1. Find Lost Item \n" << endl;
         cout << "2. Register Found Items \n" << endl;
