@@ -76,21 +76,30 @@ void FindLostItem(){
 void RegisterFoundItem(){
     cout << "\t\t\t\t\t\t REGISTER FOUND ITEM \n\n\n";
 
-    cout << "Enter name of the item: ";
-    cin.ignore();
-    getline(cin,item[last_item_id][0]);
+    item[last_item_id][0] = last_item_id;
 
-    cout << "Enter place you found the item: ";
+    cout << "Enter Name of the item: ";
+    cin.ignore();
     getline(cin,item[last_item_id][1]);
 
-    cout << "Enter the day you found the item: ";
+    cout << "Enter Description of the item: ";
     getline(cin,item[last_item_id][2]);
 
-    item[last_item_id][3] = user[current_id][5];
-    item[last_item_id][4] = "+251 " + user[current_id][6];
+    cout << "Enter Place you found the item: ";
+    getline(cin,item[last_item_id][3]);
+
+    cout << "Enter the Day you found the item: ";
+    getline(cin,item[last_item_id][4]);
+
+    item[last_item_id][5] = user[current_id][5];
+    item[last_item_id][6] = "+251 " + user[current_id][6];
     current_item_id = last_item_id;
+
     last_item_id++;
+
     system("CLS");
+
+    main();
 }
 
 void ListItem(){

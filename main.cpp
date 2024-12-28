@@ -3,7 +3,7 @@
 using namespace std;
 
 string user[100000][7]={{}};
-string item[100000][6]={{}};
+string item[100000][7]={{}};
 
 
 int current_id,last_id = 0;
