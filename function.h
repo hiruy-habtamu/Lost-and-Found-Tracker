@@ -179,9 +179,9 @@ void FindLostItem() {
 
 
 void RegisterFoundItem(){
-      cout << "\n===============================================\n" << endl;
-        cout << "              REGISTER FOUND ITEM              \n" << endl;
-        cout << "===============================================\n\n" << endl;
+    cout << "\n===============================================\n" << endl;
+    cout << "              REGISTER FOUND ITEM              \n" << endl;
+    cout << "===============================================\n\n" << endl;
 
     item[last_item_id][0] = last_item_id;
 
@@ -213,7 +213,69 @@ void ListItem(){
 
 }
 
-void EditUser(){
+void EditUser() {
+    cout << "\n===============================================\n" << endl;
+    cout << "                  EDIT USER                     \n" << endl;
+    cout << "===============================================\n\n" << endl;
+    string input;
 
+    // Track if any update was made
+
+    bool isUpdated = false;
+    //clears leftovers from the above files
+     cin.ignore();
+
+    //updates the user's information or keep the current as the user's choice
+
+    cout << "Current First Name: " << user[current_id][1] << "\nEnter new First Name (leave blank to keep current): ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][1] = input;
+        isUpdated = true;
+    }
+
+    cout << "Current Last Name: " << user[current_id][2] << "\nEnter new Last Name (leave blank to keep current): ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][2] = input;
+        isUpdated = true;
+    }
+
+    cout << "Current Password: " << user[current_id][3] << "\nEnter new Password (leave blank to keep current): ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][3] = input;
+        isUpdated = true;
+    }
+
+    cout << "Current Department: " << user[current_id][4] << "\nEnter new Department (leave blank to keep current): ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][4] = input;
+        isUpdated = true;
+    }
+
+    cout << "Current Email Address: " << user[current_id][5] << "\nEnter new Email Address (leave blank to keep current): ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][5] = input;
+        isUpdated = true;
+    }
+
+    cout << "Current Phone Number: +251 " << user[current_id][6]
+         << "\nEnter new Phone Number (leave blank to keep current, format: 9XXXXXXXX): +251 ";
+    getline(cin, input);
+    if (!input.empty()) {
+        user[current_id][6] = input;
+        isUpdated = true;
+    }
+    //checks if there is anything updated
+    if (isUpdated) {
+        cout << "\nUser information updated successfully!\n";
+    } else {
+        cout << "\nNo changes were made.\n";
+    }
+    cout << "\nPress Enter to return to the main menu...";
+    system("CLS");
+    main();
 }
-
