@@ -5,7 +5,7 @@ void CreateAccount(){
 
     // Assign id to user
 
-    user[last_id][0] = last_id;
+    user[last_id][0] = to_string(last_id);
 
 
     cout << "Please Enter First Name \n";
