@@ -74,60 +74,109 @@ void SelectAccount(){
     }
 }
 void FindLostItem() {
-     cout << "\n";
+
+    cout << "\n";
     cout << "===============================================\n";
     cout << "             FIND LOST ITEM                   \n";
     cout << "===============================================\n\n";
 
-    int id; // store the ID
     int choice;
 
-    cout << "Enter ID of the item: ";
-    cin >> id;
+    cout << "Choose search method: \n";
+    cout << "1. Search by Item ID\n";
+    cout << "2. Search by Item Name\n";
+    cout << "3. Exit to Main Menu\n";
+    cout << "Choice: ";
+    cin >> choice;
 
-    if (id < 0 || id >= last_item_id || item[id][0] == "") {
-        cout << "\nInvalid ID - please enter a valid ID." << endl;
-//        system("CLS");
-//        ListItem();
+    switch (choice) {
+        case 1: {
+            int id;
+            cout << "Enter ID of the item: ";
+            cin >> id;
+            system("CLS");
+
+            if (id < 0 || id >= last_item_id || item[id][0] == "") {
+                cout << "\nInvalid ID - please enter a valid ID." << endl;
+            } else {
+                cout << "\n";
+                cout << "\n===============================================" << endl;
+                cout << "               Found Item Details             " << endl;
+                cout << "===============================================" << endl;
+                cout << "\nName: " << item[id][1] << endl;
+                cout << "Description: " << item[id][2] << endl;
+                cout << "Place found: " << item[id][3] << endl;
+                cout << "Date found: " << item[id][4] << endl;
+                cout << "Email: " << item[id][5] << endl;
+                cout << "Phone Number: " << item[id][6] << endl;
+            }
+            break;
+        }
+        case 2: {
+            string name;
+            cout << "Enter name of the item: ";
+            cin.ignore();
+            getline(cin, name);
+            system("CLS");
+
+            bool found = false;
+            for (int i = 0; i < last_item_id; i++) {
+                if (item[i][1] == name) {
+                    cout << "\n";
+                    cout << "\n===============================================" << endl;
+                    cout << "               Found Item Details             " << endl;
+                    cout << "===============================================" << endl;
+                    cout << "\nName: " << item[i][1] << endl;
+                    cout << "Description: " << item[i][2] << endl;
+                    cout << "Place found: " << item[i][3] << endl;
+                    cout << "Date found: " << item[i][4] << endl;
+                    cout << "Email: " << item[i][5] << endl;
+                    cout << "Phone Number: " << item[i][6] << endl;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                cout << "\nItem not found with the name \"" << name << "\"." << endl;
+            }
+            break;
+        }
+        case 3:
+            cout << "Returning to Main Menu..." << endl;
+            main();
+            break;
+        default:
+            cout << "Invalid choice! Please enter a valid option." << endl;
+            FindLostItem();
+            break;
     }
-    else{
-    cout << "\n";
-    cout << "\n===============================================" << endl;
-    cout << "               Found Item Details             " << endl;
-    cout << "===============================================" << endl;
-    cout << "\nName: " << item[id][1] << endl;
-    cout << "Description: " << item[id][2] << endl;
-    cout << "Place found: " << item[id][3] << endl;
-    cout << "Date found: " << item[id][4] << endl;
-    cout << "Email: " << item[id][5] << endl;
-    cout << "Phone Number: " << item[id][6] << endl;
-    }
 
-
+    int next_choice;
     cout << "\n\n0. Return to Main Menu" << endl;
     cout << "1. Search again" << endl;
     cout << "2. Exit Program" << endl;
-    cout << "choice: ";
-    cin >> choice;
+    cout << "Choice: ";
+    cin >> next_choice;
     system("CLS");
-    switch(choice){
-    case 0:
-        main();
-        break;
-    case 1:
-        FindLostItem();
-        break;
-    case 2:
-        cout << "Exiting program..." << endl;
-        exit(0);
-    default:
-        cout << "Invalid choice! Please enter a valid option." << endl;
-        FindLostItem();
-    }
-    if (choice == 0) {
-        main();
+
+    switch (next_choice) {
+        case 0:
+            main();
+            break;
+        case 1:
+            FindLostItem();
+            break;
+        case 2:
+            cout << "Exiting program..." << endl;
+            exit(0);
+            break;
+        default:
+            cout << "Invalid choice! Please enter a valid option." << endl;
+            FindLostItem();
+            break;
     }
 }
+
 
 void RegisterFoundItem(){
       cout << "\n===============================================\n" << endl;
