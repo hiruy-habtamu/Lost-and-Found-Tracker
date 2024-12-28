@@ -2,30 +2,32 @@ int main();
 void ListItem();
 
 void CreateAccount(){
-    cout << "\t\t\t\t\t\t CREATE ACCOUNT \n\n\n";
+    cout << "\n===============================================\n" << endl;
+    cout << "                 CREATE ACCOUNT                 \n" << endl;
+    cout << "===============================================\n\n" << endl;
 
     // Assign id to user
 
     user[last_id][0] = to_string(last_id);
 
 
-    cout << "Please Enter First Name \n";
+    cout << "Please Enter First Name: ";
     cin.ignore();
     getline(cin, user[last_id][1]);
 
-    cout << "Please Enter Last Name \n";
+    cout << "Please Enter Last Name: ";
     getline(cin, user[last_id][2]);
 
-    cout << "Please Enter Password \n";
+    cout << "Please Enter Password: ";
     getline(cin, user[last_id][3]);
 
-    cout << "Please Enter Department \n";
+    cout << "Please Enter Department: ";
     getline(cin, user[last_id][4]);
 
-    cout << "Please Enter Email Address \n";
+    cout << "Please Enter Email Address: ";
     getline(cin, user[last_id][5]);
 
-    cout << "Please Enter Phone Number \n";
+    cout << "Please Enter Phone Number: ";
     cout << "+251-";
     getline(cin, user[last_id][6]);
 
@@ -43,7 +45,9 @@ void SelectAccount(){
     int id;
     string password;
     enter_id:
-    cout <<"\t\t\t\t\t\t SELECT ACCOUNT \n\n\n";
+    cout << "\n===============================================\n" << endl;
+    cout << "                  LOG IN                     \n" << endl;
+    cout << "===============================================\n\n" << endl;
     cout <<"Please Enter account id \n";
     cin >> id;
 
@@ -70,7 +74,10 @@ void SelectAccount(){
     }
 }
 void FindLostItem() {
-    cout << "\t\t\t\t\t\t FIND LOST ITEM \n\n\n";
+     cout << "\n";
+    cout << "===============================================\n";
+    cout << "             FIND LOST ITEM                   \n";
+    cout << "===============================================\n\n";
 
     int id; // store the ID
     int choice;
@@ -84,10 +91,10 @@ void FindLostItem() {
 //        ListItem();
     }
     else{
-    cout << "\n==============================================="  << endl;
-    cout << "               Found Item Details             "  << endl;
-    cout <<  "==============================================="  << endl;
-
+    cout << "\n";
+    cout << "\n===============================================" << endl;
+    cout << "               Found Item Details             " << endl;
+    cout << "===============================================" << endl;
     cout << "\nName: " << item[id][1] << endl;
     cout << "Description: " << item[id][2] << endl;
     cout << "Place found: " << item[id][3] << endl;
@@ -123,7 +130,9 @@ void FindLostItem() {
 }
 
 void RegisterFoundItem(){
-    cout << "\t\t\t\t\t\t REGISTER FOUND ITEM \n\n\n";
+      cout << "\n===============================================\n" << endl;
+        cout << "              REGISTER FOUND ITEM              \n" << endl;
+        cout << "===============================================\n\n" << endl;
 
     item[last_item_id][0] = last_item_id;
 
