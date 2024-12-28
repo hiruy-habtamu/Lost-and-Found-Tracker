@@ -3,7 +3,7 @@
 using namespace std;
 
 string user[100000][7]={{}};
-string item[100000][6]={{}};
+string item[100000][7]={{}};
 
 int current_id,last_id = 0;
 
@@ -21,7 +21,7 @@ int current_item_id,last_item_id = 0;
 //current_id is used to point at the row of the selected user
 
 //                    0     1        2             3             4                    5
-// For item[x][6] = "id","Name","Description","Location","Date/Time of loss","Contact Information"
+// For item[x][7] = "id","Name","Description","Location","Date/Time of loss","Contact Information", "Claimed/Unclaimed"
 // current_item_id is used to access the item
 // last_item_id is used to log lost item
 
