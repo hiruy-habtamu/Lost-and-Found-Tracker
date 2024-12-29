@@ -192,7 +192,6 @@ void RegisterFoundItem(){
 
     // Setting finder id to current user's id
     item[last_item_id][8] = user[current_id][0];
-    cout << item[last_item_id][8];
 
     cout << "Enter Name of the item: ";
     cin.ignore();
@@ -219,6 +218,7 @@ void RegisterFoundItem(){
 }
 
 void ListItem(){
+    int choice, claim_status,item_id;
     if (last_item_id == 0) {
         cout << "No items have been registered yet.\n\n";
     } else {
@@ -236,12 +236,60 @@ void ListItem(){
                  << item[i][6] << "\t\t"       // Phone number
                  << item[i][7] << endl;        // Claim Status
         }
-        cout << "-------------------------------------------------------------------------------------------------------------------------------------\n";
+        cout << "-------------------------------------------------------------------------------------------------------------------------------------\n\n";
+        claim_menu:
+        cout << "1. Change Claim Status\n";
+        cout << "2. Return to Main Menu\n";
+        cin.ignore();
+        cin >> choice;
+
+        switch(choice){
+            case 1:
+                cout << "Please Enter item id: ";
+                cin.ignore();
+                cin >> item_id;
+
+                if(item[item_id][0]==""){
+                    system("cls");
+                    cout << "Item not Found... \n";
+                    ListItem();
+                    break;
+                }
+                else if(item[item_id][8] != user[current_id][0]){
+                    system("cls");
+                    ListItem();
+                    cout << "User did not Register item \n\n";
+                    break;
+                }
+                else{
+                    cout <<"Are you sure you want to set item \"" << item[item_id][1] << "\" as claimed\n";
+                    cout <<"Enter 1 to continue...";
+                    cin.ignore();
+                    cin >> claim_status;
+                    if (claim_status == 1){
+                        item[item_id][7] = "Claimed";
+                    }
+                    else{
+                        cout << "No changes made to claim status \n";
+                    }
+                    system("cls");
+                    ListItem();
+                    break;
+                }
+            case 2 :
+                system("cls");
+                main();
+                break;
+            default:
+                system("cls");
+                cout << "Enter a Valid Choice \n\n";
+                goto claim_menu;
+                break;
+
+        }
     }
 
-    cout << "\nPress Enter to return to the main menu...";
-    cin.ignore();
-    cin.get();
+
     system("CLS");
     main();
 
@@ -257,7 +305,7 @@ void EditUser() {
     // Track if any update was made
 
     bool isUpdated = false;
-    //clears leftovers from the above files
+
      cin.ignore();
 
     //updates the user's information or keep the current as the user's choice
