@@ -1,5 +1,4 @@
 int main();
-void ListItem();
 
 void CreateAccount(){
     cout << "\n===============================================\n" << endl;
@@ -98,6 +97,9 @@ void FindLostItem() {
 
             if (id < 0 || id >= last_item_id || item[id][0] == "") {
                 cout << "\nInvalid ID - please enter a valid ID." << endl;
+                system("cls");
+                FindLostItem();
+                break;
             } else {
                 cout << "\n";
                 cout << "\n===============================================" << endl;
@@ -172,6 +174,7 @@ void FindLostItem() {
             break;
         default:
             cout << "Invalid choice! Please enter a valid option." << endl;
+            system("cls");
             FindLostItem();
             break;
     }
@@ -184,6 +187,12 @@ void RegisterFoundItem(){
     cout << "===============================================\n\n" << endl;
 
     item[last_item_id][0] = to_string(last_item_id);
+    // Setting Claim status to Unclaimed
+    item[last_item_id][7] = "Unclaimed";
+
+    // Setting finder id to current user's id
+    item[last_item_id][8] = user[current_id][0];
+    cout << item[last_item_id][8];
 
     cout << "Enter Name of the item: ";
     cin.ignore();
@@ -214,19 +223,20 @@ void ListItem(){
         cout << "No items have been registered yet.\n\n";
     } else {
         cout << "\n\t\t\tList of Lost Items\n";
-        cout << "--------------------------------------------------------------------\n";
-        cout << "ID\tName\t\tDescription\t\tLocation\t\tDate/Time\t\tContact Info\n";
-        cout << "--------------------------------------------------------------------\n";
+        cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
+        cout << "ID\tName\t\tDescription\t\tLocation\t\tDate/Time\t\tContact Info\t\tStatus\n ";
+        cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
 
         for (int i = 0; i < last_item_id; ++i) {
-            cout << item[i][0] << "\t"          // ID
+            cout << item[i][0] << "\t"         // ID
                  << item[i][1] << "\t\t"       // Name
                  << item[i][2] << "\t\t"       // Description
                  << item[i][3] << "\t\t"       // Location
                  << item[i][4] << "\t\t"       // Date/Time
-                 << item[i][5] << endl;        // Contact Info
+                 << item[i][6] << "\t\t"       // Phone number
+                 << item[i][7] << endl;        // Claim Status
         }
-        cout << "--------------------------------------------------------------------\n";
+        cout << "-------------------------------------------------------------------------------------------------------------------------------------\n";
     }
 
     cout << "\nPress Enter to return to the main menu...";

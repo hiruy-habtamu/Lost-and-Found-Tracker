@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string user[100000][7]={{}};
+string user[100000][8]={{}};
 
 string item[100000][8]={{}};
 
@@ -12,8 +12,8 @@ int current_id,last_id = 0;
 int current_item_id,last_item_id = 0;
 #include "function.h"
 
-//                    0      1            2           3              4            5            6
-// For user[x][7] = "id","First Name","Last Name","Password","Department","Email Address","Phone Number"
+//                    0      1            2           3              4            5            6              7
+// For user[x][8] = "id","First Name","Last Name","Password","Department","Email Address","Phone Number","Finder Id"
 
 // x is used to go through each user
 // y is used to access information about each user
@@ -23,7 +23,7 @@ int current_item_id,last_item_id = 0;
 //current_id is used to point at the row of the selected user
 
 //                    0     1        2             3             4              5            6                 7
-// For item[x][7] = "id","Name","Description","Location","Date/Time of loss","Email", "Phone Number", "Claimed/Unclaimed"
+// For item[x][7] = "id","Name","Description","Location","Date/Time Found","Email", "Phone Number", "Claimed/Unclaimed"
 // current_item_id is used to access the item
 // last_item_id is used to log lost item
 
@@ -71,9 +71,9 @@ int main()
         cout << "\t\t Id: " << current_id <<endl;
         cout << "\t\t Name: " << user[current_id][1]<<" "<<user[current_id][2]<<"\n\n\n" << endl;
         cout << "1. Find Lost Item \n" << endl;
-        cout << "2. Register Found Items \n" << endl;
-        cout << "3. List Lost items \n" << endl;
-        cout << "4. Edit User contact information \n" << endl;
+        cout << "2. Register Found Item \n" << endl;
+        cout << "3. List Lost Items \n" << endl;
+        cout << "4. Edit User Account \n" << endl;
         cout << "5. Return to Main Menu \n" << endl;
         cout << "6. Exit \n " << endl;
 
