@@ -1,5 +1,6 @@
 int main();
 
+
 void CreateAccount(){
     cout << "\n===============================================\n" << endl;
     cout << "                 CREATE ACCOUNT                 \n" << endl;
@@ -300,7 +301,7 @@ void EditUser() {
     cout << "\n===============================================\n" << endl;
     cout << "                  EDIT USER                     \n" << endl;
     cout << "===============================================\n\n" << endl;
-    string input;
+    string input,email,phone;
 
     // Track if any update was made
 
@@ -308,7 +309,6 @@ void EditUser() {
 
      cin.ignore();
 
-    //updates the user's information or keep the current as the user's choice
 
     cout << "Current First Name: " << user[current_id][1] << "\nEnter new First Name (leave blank to keep current): ";
     getline(cin, input);
@@ -331,34 +331,43 @@ void EditUser() {
         isUpdated = true;
     }
 
-    cout << "Current Department: " << user[current_id][4] << "\nEnter new Department (leave blank to keep current): ";
+    cout << "Current Department: " << user[current_id][4] << "\n Enter new Department (leave blank to keep current): ";
     getline(cin, input);
     if (!input.empty()) {
         user[current_id][4] = input;
         isUpdated = true;
     }
 
-    cout << "Current Email Address: " << user[current_id][5] << "\nEnter new Email Address (leave blank to keep current): ";
+    cout << "Current Email Address: " << user[current_id][5] << "\n Enter new Email Address (leave blank to keep current): ";
     getline(cin, input);
     if (!input.empty()) {
         user[current_id][5] = input;
+        email = input;
         isUpdated = true;
     }
 
     cout << "Current Phone Number: +251 " << user[current_id][6]
-         << "\nEnter new Phone Number (leave blank to keep current, format: 9XXXXXXXX): +251 ";
+         << "\n Enter new Phone Number (leave blank to keep current, format: 9XXXXXXXX): +251 ";
     getline(cin, input);
     if (!input.empty()) {
         user[current_id][6] = input;
+        phone = "+251-" + input;
         isUpdated = true;
     }
-    //checks if there is anything updated
+    // Updates phone number and email of items registered by user
+    for(int i = 0; i< last_item_id;i++){
+        if(item[i][8] == user[current_id][0]){
+            item[i][5] = email;
+            item[i][6] = phone;
+        }
+    }
+
     if (isUpdated) {
         cout << "\nUser information updated successfully!\n";
     } else {
         cout << "\nNo changes were made.\n";
     }
     cout << "\nPress Enter to return to the main menu...";
-    system("CLS");
+    system("cls");
     main();
 }

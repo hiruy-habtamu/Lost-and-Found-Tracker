@@ -13,12 +13,12 @@ int current_item_id,last_item_id = 0;
 #include "function.h"
 
 //                    0      1            2           3              4            5            6
-// For user[x][7] = "id","First Name","Last Name","Password","Department","Email Address","Phone Number",
+// For user[x][7] = "id","First Name","Last Name","Password","Department","Email Address","Phone Number"
 
 // x is used to go through each user
 // y is used to access information about each user
 // The value of user[0][0] = "0"
-//              user[1][0] = "2" meaning id == each row
+//              user[1][0] = "1" meaning id == each row
 //last_id is used to create an account
 //current_id is used to point at the row of the selected user
 
@@ -37,7 +37,7 @@ int main()
             cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER" << endl;
             cout << "\t\t\t\t\t******************************************* \n\n\n"<< endl;
             cout << "1. Sign up \n" << endl;
-            cout << "2. Log in \n" <<endl;
+            cout << "2. Log in \n" << endl;
             cout << "3. Exit \n" << endl;
 
             cin >> choice;
