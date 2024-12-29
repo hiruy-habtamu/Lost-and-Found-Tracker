@@ -210,6 +210,30 @@ void RegisterFoundItem(){
 }
 
 void ListItem(){
+    if (last_item_id == 0) {
+        cout << "No items have been registered yet.\n\n";
+    } else {
+        cout << "\n\t\t\tList of Lost Items\n";
+        cout << "--------------------------------------------------------------------\n";
+        cout << "ID\tName\t\tDescription\t\tLocation\t\tDate/Time\t\tContact Info\n";
+        cout << "--------------------------------------------------------------------\n";
+
+        for (int i = 0; i < last_item_id; ++i) {
+            cout << item[i][0] << "\t"          // ID
+                 << item[i][1] << "\t\t"       // Name
+                 << item[i][2] << "\t\t"       // Description
+                 << item[i][3] << "\t\t"       // Location
+                 << item[i][4] << "\t\t"       // Date/Time
+                 << item[i][5] << endl;        // Contact Info
+        }
+        cout << "--------------------------------------------------------------------\n";
+    }
+
+    cout << "\nPress Enter to return to the main menu...";
+    cin.ignore();
+    cin.get();
+    system("CLS");
+
 
 }
 
