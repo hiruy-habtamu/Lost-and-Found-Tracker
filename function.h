@@ -183,7 +183,7 @@ void RegisterFoundItem(){
     cout << "              REGISTER FOUND ITEM              \n" << endl;
     cout << "===============================================\n\n" << endl;
 
-    item[last_item_id][0] = last_item_id;
+    item[last_item_id][0] = to_string(last_item_id);
 
     cout << "Enter Name of the item: ";
     cin.ignore();
@@ -233,6 +233,7 @@ void ListItem(){
     cin.ignore();
     cin.get();
     system("CLS");
+    main();
 
 
 }
