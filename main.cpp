@@ -81,6 +81,7 @@ int main()
         cout << "4. Edit User Account \n" << endl;
         cout << "5. Return to Main Menu \n" << endl;
         cout << "6. Exit \n " << endl;
+        cout << "Choice: ";
 
 
         cin >> choice;
