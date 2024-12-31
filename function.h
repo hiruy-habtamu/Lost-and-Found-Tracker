@@ -218,66 +218,70 @@ void RegisterFoundItem(){
     main();
 }
 
-void ListItem(){
-    int choice, claim_status,item_id;
+void ListItem() {
+    int choice, claim_status, item_id;
     if (last_item_id == 0) {
         cout << "No items have been registered yet.\n\n";
     } else {
         cout << "\n\t\t\tList of Lost Items\n";
         cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
-        cout << "ID\tName\t\tDescription\t\tLocation\t\tDate/Time\t\tContact Info\t\tStatus\n ";
+        cout << setw(5) << left << "ID"
+             << setw(20) << "Name"
+             << setw(30) << "Description"
+             << setw(20) << "Location"
+             << setw(25) << "Date/Time"
+             << setw(20) << "Contact Info"
+             << setw(15) << "Status" << "\n";
         cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
 
         for (int i = 0; i < last_item_id; ++i) {
-            cout << item[i][0] << "\t"         // ID
-                 << item[i][1] << "\t\t"       // Name
-                 << item[i][2] << "\t\t"       // Description
-                 << item[i][3] << "\t\t"       // Location
-                 << item[i][4] << "\t\t"       // Date/Time
-                 << item[i][6] << "\t\t"       // Phone number
-                 << item[i][7] << endl;        // Claim Status
+            cout << setw(5) << left << item[i][0]
+                 << setw(20) << item[i][1]
+                 << setw(30) << item[i][2]
+                 << setw(20) << item[i][3]
+                 << setw(25) << item[i][4]
+                 << setw(20) << item[i][6]
+                 << setw(15) << item[i][7] << "\n";
         }
-        cout << "-------------------------------------------------------------------------------------------------------------------------------------\n\n";
+        cout << "-----------------------------------------------------------------------------------------------------------------------------------\n\n";
+
         claim_menu:
         cout << "1. Change Claim Status\n";
         cout << "2. Return to Main Menu\n";
         cin.ignore();
         cin >> choice;
 
-        switch(choice){
+        switch(choice) {
             case 1:
                 cout << "Please Enter item id: ";
                 cin.ignore();
                 cin >> item_id;
 
-                if(item[item_id][0]==""){
+                if(item[item_id][0] == "") {
                     system("cls");
                     cout << "Item not Found... \n";
                     ListItem();
                     break;
-                }
-                else if(item[item_id][8] != user[current_id][0]){
+                } else if(item[item_id][8] != user[current_id][0]) {
                     system("cls");
                     ListItem();
                     cout << "User did not Register item \n\n";
                     break;
-                }
-                else{
-                    cout <<"Are you sure you want to set item \"" << item[item_id][1] << "\" as claimed\n";
-                    cout <<"Enter 1 to continue...";
+                } else {
+                    cout << "Are you sure you want to set item \"" << item[item_id][1] << "\" as claimed\n";
+                    cout << "Enter 1 to continue...";
                     cin.ignore();
                     cin >> claim_status;
-                    if (claim_status == 1){
+                    if (claim_status == 1) {
                         item[item_id][7] = "Claimed";
-                    }
-                    else{
+                    } else {
                         cout << "No changes made to claim status \n";
                     }
                     system("cls");
                     ListItem();
                     break;
                 }
-            case 2 :
+            case 2:
                 system("cls");
                 main();
                 break;
@@ -286,15 +290,11 @@ void ListItem(){
                 cout << "Enter a Valid Choice \n\n";
                 goto claim_menu;
                 break;
-
         }
     }
 
-
     system("CLS");
     main();
-
-
 }
 
 void EditUser() {
