@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 
 string user[100000][7]={{}};
@@ -39,6 +39,7 @@ int main()
             cout << "1. Sign up \n" << endl;
             cout << "2. Log in \n" << endl;
             cout << "3. Exit \n" << endl;
+            cout << "Choice: ";
 
             cin >> choice;
             switch(choice){
@@ -80,6 +81,8 @@ int main()
         cout << "4. Edit User Account \n" << endl;
         cout << "5. Return to Main Menu \n" << endl;
         cout << "6. Exit \n " << endl;
+        cout << "Choice: ";
+
 
         cin >> choice;
         switch(choice){
