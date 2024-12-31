@@ -80,7 +80,7 @@ void FindLostItem() {
     cout << "             FIND LOST ITEM                   \n";
     cout << "===============================================\n\n";
 
-    int choice;
+    char choice;
 
     cout << "Choose search method: \n";
     cout << "1. Search by Item ID\n";
@@ -90,7 +90,7 @@ void FindLostItem() {
     cin >> choice;
 
     switch (choice) {
-        case 1: {
+        case '1': {
             int id;
             cout << "Enter ID of the item: ";
             cin >> id;
@@ -115,7 +115,7 @@ void FindLostItem() {
             }
             break;
         }
-        case 2: {
+        case '2': {
             string name;
             cout << "Enter name of the item: ";
             cin.ignore();
@@ -144,7 +144,7 @@ void FindLostItem() {
             }
             break;
         }
-        case 3:
+        case '3':
             cout << "Returning to Main Menu..." << endl;
             main();
             break;
@@ -154,7 +154,7 @@ void FindLostItem() {
             break;
     }
 
-    int next_choice;
+    char next_choice;
     cout << "\n\n0. Return to Main Menu" << endl;
     cout << "1. Search again" << endl;
     cout << "2. Exit Program" << endl;
@@ -163,13 +163,13 @@ void FindLostItem() {
     system("CLS");
 
     switch (next_choice) {
-        case 0:
+        case '0':
             main();
             break;
-        case 1:
+        case '1':
             FindLostItem();
             break;
-        case 2:
+        case '2':
             cout << "Exiting program..." << endl;
             exit(0);
             break;
