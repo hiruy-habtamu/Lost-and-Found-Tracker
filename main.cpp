@@ -10,7 +10,7 @@ int current_id,last_id = 0;
 
 
 int current_item_id,last_item_id = 0;
-#include "function.h"
+#include "function.h"  // Include the function definitions
 
 //                    0      1            2           3              4            5            6
 // For user[x][7] = "id","First Name","Last Name","Password","Department","Email Address","Phone Number"
@@ -27,12 +27,15 @@ int current_item_id,last_item_id = 0;
 // current_item_id is used to access the item
 // last_item_id is used to log lost item
 
+//Main program entry point for the Lost and Found Tracker
 int main()
 {
+    // Check if any users exist in the system
     char choice;
 
     if(user[0][1] ==""){
             main_menu:
+                // Display main menu for first-time users
             cout << "\t\t\t\t\t*******************************************"<< endl;
             cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER" << endl;
             cout << "\t\t\t\t\t******************************************* \n\n\n"<< endl;
@@ -44,11 +47,13 @@ int main()
             cin >> choice;
             switch(choice){
                 case '1':
+                    // Create a new user account
                     system("CLS");
                     CreateAccount();
                     break;
 
                 case '2':
+                    // Log in to an existing account
                     if(user[0][0]==""){
                             system("CLS");
                             cout << "There are no Accounts \n\n\n";
@@ -61,15 +66,18 @@ int main()
                     break;
 
                 case '3':
+                    // Exit the program
                     return 0;
                     break;
                 default:
+                    //Handle invalid input
                     system("CLS");
                     cout << "\t\t***Please Enter a valid choice***\n\n\n" << endl;
                     main();
                     }
             }
     else{
+            // Display the main dashboard for logged-in users
         cout << "\t\t\t\t\t*******************************************"<< endl;
         cout << "\t\t\t\t\t\t LOST AND FOUND TRACKER" << endl;
         cout << "\t\t\t\t\t******************************************* \n\n\n"<< endl;
@@ -87,29 +95,36 @@ int main()
         cin >> choice;
         switch(choice){
             case '1':
+                // Search for lost items
                 system("cls");
                 FindLostItem();
                 break;
             case '2':
+                // Register a newly found item
                 system("cls");
                 RegisterFoundItem();
                 break;
             case '3':
+                // Display a list of all registered items
                 system("cls");
                 ListItem();
                 break;
             case '4':
+                // Edit the current user's account information
                 system("cls");
                 EditUser();
                 break;
             case '5':
+                //Return to main menu
                 system("cls");
                 goto main_menu;
                 break;
             case '6':
+                //Exit the program
                 return 0;
                 break;
             default:
+                //Handle invalid input
                 system("cls");
                 cout <<"**Please Enter a valid choice**";
                 main();
